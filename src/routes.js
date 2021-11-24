@@ -14,12 +14,18 @@ module.exports =  async function routes(app) {
     app.get('/hello' , geoLocationController.helloFromServer);
 
 
-    app.get('/', (req, res) => {
-        return res.send({ "hello": 'Hey' });
-    });
+    // app.get('/', (req, res) => {
+    //     return res.send({ "hello": 'Hey' });
+    // });
 
 
+    app.get('/api' ,geoLocationController.apiGetDist);
+
+    app.get('/health', geoLocationController.healthFromDB);
+
+    app.get('/popularsearch', geoLocationController.popularSearch);
     
+    app.post('/distance', geoLocationController.addDistance);
 
-    
 }
+
